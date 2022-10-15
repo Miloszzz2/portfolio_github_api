@@ -32,12 +32,14 @@ function Left() {
       <div className='repos'>
         {repos.map((item) => {
           return (
-            <div className='repo' key={item.name}>
-              <h1>{item.name}</h1>
-              <p>👀 : {item.watchers}</p>
-              <p>🍴: {item.forks}</p>
-              <p>⭐: {item.stargazers_count}</p>
-            </div>
+            <a className='repo' href={item.html_url} key={item.name}>
+              <div>
+                <h1>{item.name}</h1>
+                <p>👀 : {item.watchers}</p>
+                <p>🍴: {item.forks}</p>
+                <p>⭐: {item.stargazers_count}</p>
+              </div>
+            </a>
           );
         })}
       </div>
