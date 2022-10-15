@@ -2,100 +2,91 @@
   box-sizing: border-box;
   font-weight: 100;
 }
-
+$basic-border: 2px solid black;
 h2 {
   font-weight: 400;
 }
-
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: black;
 }
-
 .App {
   display: flex;
   flex-direction: column;
-  font-family: "Fira Code", sans-serif;
+  font-family: 'Fira Code', sans-serif;
   background-color: #e9e9e9;
 }
-
 .top_panel {
   width: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: $basic-border;
   padding: 0 30px;
   display: flex;
   align-items: flex-end;
   height: 15vh;
+  h1 {
+    font-size: 48px;
+    text-transform: uppercase;
+  }
 }
-.top_panel h1 {
-  font-size: 48px;
-  text-transform: uppercase;
-}
-
 .container {
   display: flex;
   height: 85vh;
 }
-
 .left_panel {
   width: 70%;
+  p {
+    font-size: 20px;
+  }
+  ul {
+    padding: 0 20px;
+  }
+  img {
+    height: 35px;
+  }
 }
-.left_panel p {
-  font-size: 20px;
-}
-.left_panel ul {
-  padding: 0 20px;
-}
-.left_panel img {
-  height: 35px;
-}
-
 .right_panel {
   width: 30%;
-  border-left: 2px solid black;
+  border-left: $basic-border;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  img {
+    border-radius: 50%;
+  }
 }
-.right_panel img {
-  border-radius: 50%;
-}
-
 .user_info {
   padding: 30px;
-  border-bottom: 2px solid black;
+  border-bottom: $basic-border;
   width: 100%;
   height: 65%;
 }
-
 .repos {
   display: grid;
   height: 35%;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 100%;
   overflow-y: scroll;
+  .repo:nth-of-type(4n) {
+    border-right: 0;
+  }
 }
-.repos .repo:nth-of-type(4n) {
-  border-right: 0;
-}
-
 .repo {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: $basic-border;
+  border-bottom: $basic-border;
   display: flex;
   gap: 5px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
 }
-.repo h1 {
-  margin: 0;
-}
-.repo p {
-  margin: 0;
-}/*# sourceMappingURL=App.css.map */
