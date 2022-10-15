@@ -6,7 +6,6 @@ function Left() {
   const { repos } = useContext(UserContext);
   const createdDate = dateFormat(user.created_at, 'dd.mm.yyyy');
 
-  console.log(repos);
   return (
     <div className='left_panel'>
       <div className='user_info'>
@@ -33,7 +32,7 @@ function Left() {
       <div className='repos'>
         {repos.map((item) => {
           return (
-            <div className='repo'>
+            <div className='repo' key={item.name}>
               <h1>{item.name}</h1>
               <p>👀 : {item.watchers}</p>
               <p>🍴: {item.forks}</p>

@@ -9,20 +9,44 @@ export const UserContext = createContext();
 function App() {
   const [user, setData] = useState();
   const [repos, setRepos] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    axios
+    getUser();
+    getRepos();
+  }, []);
+  const getUser = async () => {
+    await axios
       .get('https://api.github.com/users/Miloszzz2')
-      .then((response) => setData(response.data));
-    axios
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+  const getRepos = async () => {
+    await axios
       .get('https://api.github.com/users/Miloszzz2/repos')
       .then((response) => {
         setRepos(response.data);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }, []);
-
+  };
+  if (error) return <h1>Error</h1>;
+  if (loading) return <h1>Loading...</h1>;
   return (
-    <UserContext.Provider value={{ user, repos }}>
-      {user && (
+    user &&
+    repos && (
+      <UserContext.Provider value={{ user, repos }}>
         <>
           <div className='App'>
             <Top />
@@ -32,8 +56,8 @@ function App() {
             </div>
           </div>
         </>
-      )}
-    </UserContext.Provider>
+      </UserContext.Provider>
+    )
   );
 }
 
