@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { createContext } from 'react';
-import Top from './components/top';
+import Top from './components/topPanel';
 import Left from './components/leftPanel';
 import Right from './components/rightPanel';
 export const UserContext = createContext();
