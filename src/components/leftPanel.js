@@ -32,7 +32,12 @@ function Left() {
       <div className='repos'>
         {repos.map((item) => {
           return (
-            <a className='repo' href={item.html_url} key={item.name}>
+            <a
+              className='repo'
+              href={item.html_url}
+              key={item.name}
+              target='blank'
+            >
               <div>
                 <h1>{item.name}</h1>
                 <p>👀 : {item.watchers}</p>
